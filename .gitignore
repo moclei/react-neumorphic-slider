@@ -9,7 +9,8 @@
 /coverage
 
 # production
-/build
+/packages/example/build/*
+/packages/react-neumorphic-slider/dist/*
 
 # misc
 .DS_Store
