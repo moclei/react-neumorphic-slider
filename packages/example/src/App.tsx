@@ -77,7 +77,6 @@ function App() {
               <div style={{width: "100%", background: "inherit", padding: "24px"}}>
                   <Slider label={"Auto theme"} background={color} />
               </div>
-
           </div>
 
       </StyledApp>
