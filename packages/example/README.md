@@ -5,7 +5,7 @@
 ## How to use
 
 ```sh
-npm install react-neumorphic-slider --save
+npm install react-neumorphic-slider
 ```
 or
 ```sh
