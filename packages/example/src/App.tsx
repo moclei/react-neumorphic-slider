@@ -38,7 +38,6 @@ function App() {
     const [color, setColor ] = useState( checkVal ? "#444444" : "#E4EBF5");
     const [theme, setTheme] = useState(customTheme)
     const handleCheckChange = (event: any) => {
-        console.debug("event.checked: ", event.checked);
         setCheckVal(event.checked);
         setColor(event.checked ? "#444444" : "#E4EBF5")
     }

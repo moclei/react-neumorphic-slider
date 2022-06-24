@@ -1,9 +1,14 @@
 {
   "name": "@moclei/react-neumorphic-slider",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "private": "false",
+  "homepage": "https://github.com/moclei/react-neumorphic-slider",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -48,5 +53,5 @@
       "last 1 safari version"
     ]
   },
-  "gitHead": "d12d11c048201e1f02c16716f82d01fc89ca5427"
+  "gitHead": "1fe0b50f836905b809c9f46343ddeecdaeb18eb7"
 }
