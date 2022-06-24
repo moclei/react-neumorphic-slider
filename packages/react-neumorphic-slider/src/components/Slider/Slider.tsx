@@ -66,7 +66,7 @@ export enum SliderTheme {
 }
 
 export const Slider = ({
-                    disabled = false,
+    disabled = false,
     background,
     mode,
                     color,
