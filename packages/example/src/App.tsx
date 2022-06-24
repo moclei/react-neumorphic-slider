@@ -44,7 +44,6 @@ function App() {
         setCheckVal(event.checked);
         setColor(event.checked ? "#444444" : "#E4EBF5")
     }
-
     return (
       <StyledApp dark={checkVal} background={color}>
           <div style={{flex: 1}}>
@@ -77,7 +76,6 @@ function App() {
               <div style={{width: "100%", background: "inherit", padding: "24px"}}>
                   <Slider label={"Auto theme"} background={color} />
               </div>
-
           </div>
 
       </StyledApp>
