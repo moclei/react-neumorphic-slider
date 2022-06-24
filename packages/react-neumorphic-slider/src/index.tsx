@@ -1,2 +1,1 @@
-export {Slider} from "./components/Slider/Slider";
-
+export {Slider, SliderTheme} from "./components/Slider/Slider";
