@@ -44,7 +44,6 @@ function App() {
         setCheckVal(event.checked);
         setColor(event.checked ? "#444444" : "#E4EBF5")
     }
-
     return (
       <StyledApp dark={checkVal} background={color}>
           <div style={{flex: 1}}>
