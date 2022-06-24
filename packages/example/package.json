@@ -1,9 +1,9 @@
 {
   "name": "@moclei/react-neumorphic-slider-example",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "@moclei/react-neumorphic-slider": "*",
+    "@moclei/react-neumorphic-slider": "^0.1.2",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
