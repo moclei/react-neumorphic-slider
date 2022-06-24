@@ -5,8 +5,6 @@ import {ColorResult, SketchPicker} from 'react-color';
 import {Switch} from "ui-neumorphism";
 import 'ui-neumorphism/dist/index.css';
 
-const Color = require('color');
-
 interface StyledAppProps {
     dark: boolean;
     background: string;

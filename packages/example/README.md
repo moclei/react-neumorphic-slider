@@ -25,15 +25,37 @@ class Component extends React.Component {
   }
 }
 ```
+
 ### Usage Options
+With label and default theme (light)
 ```js
-import React from 'react'
-import Slider from 'react-neumorphic-slider'
+ <div style={{width: "100%", background: "#E4EBF5", padding: "24px"}}>
+                  <Slider label={"Default theme (light)"} /*same as mode={SliderTheme.LIGHT}*/ />
+ </div>
+```
+With dark theme
+```js
+              <div style={{width: "100%", background: "#444444", padding: "24px"}}>
+                <Slider label={"Dark theme"} mode={SliderTheme.DARK} />
+              </div>
+```
+With auto generated theme - requires passing in the background color
+```js
+              <div style={{width: "100%", background: "inherit", padding: "24px"}}>
+                  <Slider label={"Auto theme"} background={color} />
+              </div>
+```
 
-class Component extends React.Component {
+Get the slider value - pass in a handler function to onChange
+```js
+                  <Slider label={"Auto theme"} background={color} onChange={handleChange} />
+```
+Set a custom range in the format {min: string, max: string}. Default is 0 to 100.
+```js
+                  <Slider label={"Auto theme"} background={color} onChange={handleChange} range={{min: "0", max: "7"}} />
+```
 
-  render() {
-    return <Slider />
-  }
-}
+Disabled
+```js
+                  <Slider disabled={true} />
 ```

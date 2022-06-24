@@ -73,7 +73,8 @@ export const Slider = ({
                     value = "0",
                     range = {min: "0", max: "100"},
                     style,
-                    label, labelClassName,
+                    label,
+                    labelClassName,
                     className,
                     ...props}: SliderProps) => {
     const sliderRef = useRef()  as React.MutableRefObject<HTMLInputElement>;
