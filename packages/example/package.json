@@ -2,7 +2,7 @@
   "name": "@moclei/react-neumorphic-slider-example",
   "version": "0.1.2",
   "private": true,
-  "homepage": "https://github.com/moclei/react-neumorphic-slider",
+  "homepage": "https://moclei.github.io/react-neumorphic-slider",
   "dependencies": {
     "@moclei/react-neumorphic-slider": "^0.1.6",
     "@testing-library/jest-dom": "^5.16.4",
