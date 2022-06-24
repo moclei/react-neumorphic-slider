@@ -3,7 +3,6 @@ import styled from "styled-components";
 import {Slider} from "@moclei/react-neumorphic-slider";
 import ThemeCheck from "./components/Checkbox/ThemeCheck";
 import {ColorResult, SketchPicker} from 'react-color';
-import hexRgb from 'hex-rgb';
 
 const Color = require('color');
 
@@ -46,31 +45,6 @@ function App() {
         setColor(checkVal ? "#444444" : "#E4EBF5")
     }
 
-    const handleSuggestColors = () => {
-        const rgbBackground = Color(hexRgb(color, {format: 'css'}));
-        console.debug("handleSuggestColors, darkMode? ", checkVal);
-        console.debug("luminosity? ", rgbBackground.luminosity());
-        let lightShadow = rgbBackground.lighten(0.5);
-        let darkShadow =  rgbBackground.darken(0.5);
-
-        if (rgbBackground.luminosity() < 0.02 ) {
-            const newMax = 6;
-            const newMin = 2;
-            const oldMax = 1;
-            const oldMin = 0.98;
-            const newRange = newMax - newMin;
-            const oldRange = oldMax - oldMin;
-            const newValue = ((((1 - rgbBackground.luminosity()) - oldMin) * newRange) / oldRange) + newMin;
-            console.debug("new luminosity value: ", newValue);
-            lightShadow = rgbBackground.lighten(newValue);
-            darkShadow = rgbBackground.lighten(newValue / 2);
-        }
-
-        console.debug("Suggesting lightShadow: ", lightShadow.grayscale().hex());
-        console.debug("Suggesting darkShadow: ", darkShadow.grayscale().hex());
-        setTheme({...customTheme, bgDarkShadow: darkShadow.grayscale().hex(), bgLightShadow: lightShadow.grayscale().hex()})
-    }
-
     return (
       <StyledApp dark={checkVal} background={color}>
           <div style={{flex: 1}}>
@@ -105,7 +79,7 @@ function App() {
               </label>*/}
           </div>
           <div style={{display:"flex", flex:3, flexDirection: "column", background: "inherit" }}>
-              <Slider label={"Auto theme"} background={color} />
+              <Slider label={"Auto theme"} />
           </div>
 
       </StyledApp>
