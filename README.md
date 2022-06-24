@@ -11,6 +11,10 @@ or
 ```sh
 yarn add react-neumorphic-slider
 ```
+
+### Demo
+![Demo](https://giphy.com/embed/gp7xlb9hvQpUP5gpyP)
+
 ### Include the Component
 
 ```js

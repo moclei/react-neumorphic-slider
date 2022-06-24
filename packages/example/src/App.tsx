@@ -1,8 +1,9 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {useState} from 'react';
 import styled from "styled-components";
-import {Slider} from "@moclei/react-neumorphic-slider";
-import ThemeCheck from "./components/Checkbox/ThemeCheck";
+import {Slider, SliderTheme} from "@moclei/react-neumorphic-slider";
 import {ColorResult, SketchPicker} from 'react-color';
+import {Switch} from "ui-neumorphism";
+import 'ui-neumorphism/dist/index.css';
 
 const Color = require('color');
 
@@ -38,11 +39,10 @@ function App() {
     const [checkVal, setCheckVal] = useState<boolean>(false);
     const [color, setColor ] = useState( checkVal ? "#444444" : "#E4EBF5");
     const [theme, setTheme] = useState(customTheme)
-    const handleCheckChange = (event: ChangeEvent<HTMLInputElement>) => {
-        const checkVal = event.target.checked
-        console.debug("checkVal: ", checkVal);
-        setCheckVal(checkVal);
-        setColor(checkVal ? "#444444" : "#E4EBF5")
+    const handleCheckChange = (event: any) => {
+        console.debug("event.checked: ", event.checked);
+        setCheckVal(event.checked);
+        setColor(event.checked ? "#444444" : "#E4EBF5")
     }
 
     return (
@@ -57,29 +57,27 @@ function App() {
               flexDirection: "column",
               alignItems: "center",
           }}>
-              <label>
-                  <ThemeCheck checked={checkVal} onCheckChange={handleCheckChange}/>
+              <div style={{display: "flex", alignItems: "center", padding: "24px"}}>
+                  <Switch color='purple' onChange={handleCheckChange}/>
                   <span style={{ marginLeft: 8 }}>Dark mode</span>
-              </label>
-              <p>Background color picker</p>
+              </div>
+              <p style={{padding: "24px"}}>Auto theme Background color picker</p>
               <SketchPicker
               color={color}
               onChangeComplete={(color: ColorResult) => setColor(color.hex)}
               />
-             {/* <label>
-                <input style={{
-                    width: "200px",
-                    height: "28px",
-                    background: "peachpuff",
-                    cursor: "pointer",
-                    border: "none",
-                    borderRadius: "4px"
-                }} type={"button"} onClick={handleSuggestColors} />
-                  <span style={{ marginLeft: 8 }}>Suggest Colors</span>
-              </label>*/}
           </div>
-          <div style={{display:"flex", flex:3, flexDirection: "column", background: "inherit" }}>
-              <Slider label={"Auto theme"} />
+          <div style={{display: "flex", flex: 3, flexDirection: "column", width: "400px"}}>
+              <div style={{width: "100%", background: "#E4EBF5", padding: "24px"}}>
+                  <Slider label={"Default theme (light)"} /*same as mode={SliderTheme.LIGHT}*/ />
+              </div>
+              <div style={{width: "100%", background: "#444444", padding: "24px"}}>
+                <Slider label={"Dark theme"} mode={SliderTheme.DARK} />
+              </div>
+              <div style={{width: "100%", background: "inherit", padding: "24px"}}>
+                  <Slider label={"Auto theme"} background={color} />
+              </div>
+
           </div>
 
       </StyledApp>
