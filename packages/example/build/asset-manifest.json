@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/moclei/react-neumorphic-slider/static/css/main.1e9c1fc7.css",
-    "main.js": "/moclei/react-neumorphic-slider/static/js/main.c972e454.js",
-    "static/js/415.87477e2c.chunk.js": "/moclei/react-neumorphic-slider/static/js/415.87477e2c.chunk.js",
-    "index.html": "/moclei/react-neumorphic-slider/index.html",
-    "main.1e9c1fc7.css.map": "/moclei/react-neumorphic-slider/static/css/main.1e9c1fc7.css.map",
-    "main.c972e454.js.map": "/moclei/react-neumorphic-slider/static/js/main.c972e454.js.map",
-    "415.87477e2c.chunk.js.map": "/moclei/react-neumorphic-slider/static/js/415.87477e2c.chunk.js.map"
+    "main.css": "/react-neumorphic-slider/static/css/main.1e9c1fc7.css",
+    "main.js": "/react-neumorphic-slider/static/js/main.c7f0fdf4.js",
+    "static/js/415.87477e2c.chunk.js": "/react-neumorphic-slider/static/js/415.87477e2c.chunk.js",
+    "index.html": "/react-neumorphic-slider/index.html",
+    "main.1e9c1fc7.css.map": "/react-neumorphic-slider/static/css/main.1e9c1fc7.css.map",
+    "main.c7f0fdf4.js.map": "/react-neumorphic-slider/static/js/main.c7f0fdf4.js.map",
+    "415.87477e2c.chunk.js.map": "/react-neumorphic-slider/static/js/415.87477e2c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1e9c1fc7.css",
-    "static/js/main.c972e454.js"
+    "static/js/main.c7f0fdf4.js"
   ]
 }
