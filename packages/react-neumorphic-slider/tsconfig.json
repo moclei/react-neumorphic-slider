@@ -21,6 +21,5 @@
     "jsx": "react-jsx",
     "declaration": true
   },
-  "files": [],
   "include": ["src"]
 }

@@ -25,18 +25,7 @@ class Component extends React.Component {
   }
 }
 ```
-### Usage Options
-```js
-import React from 'react'
-import Slider from 'react-neumorphic-slider'
 
-class Component extends React.Component {
-
-  render() {
-    return <Slider />
-  }
-}
-```
 ### Usage Options
 With label and default theme (light)
 ```js
