@@ -13,7 +13,7 @@ yarn add react-neumorphic-slider
 ```
 
 ### Demo
-![Demo](https://giphy.com/embed/gp7xlb9hvQpUP5gpyP)
+![Demo](https://media.giphy.com/media/gp7xlb9hvQpUP5gpyP/giphy.gif)
 
 ### Include the Component
 
