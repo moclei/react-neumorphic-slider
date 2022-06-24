@@ -1,13 +1,13 @@
+const Color = require('color');
 import React, {ChangeEvent, useEffect, useMemo, useRef, useState} from 'react'
 import {ThemeProvider} from 'styled-components';
 import {NuSliderBody1, NuSliderContainer, NuSliderLabelStyled, NuSliderStyled, SliderThemeProps} from "./Slider.styles";
 import hexRgb from 'hex-rgb';
-const Color = require('color');
+
 
 export const uid = () => {
     return `_${(((1 + Math.random()) * 0x10000) | 0).toString(8).substring(1)}_`
 }
-
 const commonTheme = {
     white: '#ffffff',
     black: '#000000',
@@ -54,12 +54,10 @@ interface SliderProps {
     theme?: SliderThemeProps,
     range?: SliderRange
 }
-
 interface SliderRange {
     min: string | number;
     max: string | number;
 }
-
 export enum SliderTheme {
     DARK = "dark",
     LIGHT = "light"
