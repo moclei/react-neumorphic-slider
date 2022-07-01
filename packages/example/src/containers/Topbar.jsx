@@ -11,8 +11,8 @@ import {
 import {H2, H6, Card, IconButton, RadioGroup, Radio, ToggleButton} from 'ui-neumorphism'
 import {SliderPicker} from "react-color";
 
-const npmUrl = 'https://www.npmjs.com/package/react-neumorphic-ui';
-const githubUrl = 'https://github.com/moclei/react-neumorphic-ui';
+const npmUrl = 'https://www.npmjs.com/package/@moclei/react-neumorphic-slider';
+const githubUrl = 'https://github.com/moclei/react-neumorphic-slider';
 
 class Topbar extends React.Component {
     open(url) {

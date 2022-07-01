@@ -45,20 +45,9 @@ export const sliderControlApi = (dark, type, valueKey = 'value') => {
             'color',
             'String',
             <div>
-                <div>
-                    Light:&nbsp;&nbsp;
-                    <span style={{ color: 'var(--primary-dark)' }}>
-            --g-text-color-light
-          </span>
-                </div>
-                <div>
-                    Dark:&nbsp;&nbsp;
-                    <span style={{ color: 'var(--primary-dark)' }}>
-            --g-text-color-dark
-          </span>
-                </div>
+                white
             </div>,
-            `Applies specified color to the ${type}.`
+            `Applies specified color to the thumb control of the ${type}.`
         ),
         eventDoc(
             dark,
