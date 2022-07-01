@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import styled from "styled-components";
-import {Slider, SliderTheme} from "@moclei/react-neumorphic-slider";
-import {ColorResult, SketchPicker} from 'react-color';
-import {Switch} from "ui-neumorphism";
 import 'ui-neumorphism/dist/index.css';
+import DemoPage from "./pages/DemoPage";
 
 interface StyledAppProps {
     dark: boolean;
@@ -41,7 +39,14 @@ function App() {
         setCheckVal(event.checked);
         setColor(event.checked ? "#444444" : "#E4EBF5")
     }
-    return (
+    return <DemoPage size={"lg"} location={"/"}/>;
+
+}
+
+export default App;
+
+/*
+  return (
       <StyledApp dark={checkVal} background={color}>
           <div style={{flex: 1}}>
             React neumorphic slider example
@@ -65,18 +70,16 @@ function App() {
           </div>
           <div style={{display: "flex", flex: 3, flexDirection: "column", width: "400px"}}>
               <div style={{width: "100%", background: "#E4EBF5", padding: "24px"}}>
-                  <Slider label={"Default theme (light)"} /*same as mode={SliderTheme.LIGHT}*/ />
-              </div>
-              <div style={{width: "100%", background: "#444444", padding: "24px"}}>
-                <Slider label={"Dark theme"} mode={SliderTheme.DARK} />
-              </div>
-              <div style={{width: "100%", background: "inherit", padding: "24px"}}>
-                  <Slider label={"Auto theme"} background={color} />
-              </div>
-          </div>
+                  <Slider label={"Default theme (light)"} />
+</div>
+<div style={{width: "100%", background: "#444444", padding: "24px"}}>
+    <Slider label={"Dark theme"} mode={SliderTheme.DARK} />
+</div>
+<div style={{width: "100%", background: "inherit", padding: "24px"}}>
+    <Slider label={"Auto theme"} background={color} />
+</div>
+</div>
 
-      </StyledApp>
-  );
-}
-
-export default App;
+</StyledApp>
+);
+ */
