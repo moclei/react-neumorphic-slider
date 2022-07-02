@@ -1,0 +1,181 @@
+.nu-progress-linear {
+  display: flex;
+  width: inherit;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: var(--bg-color);
+  transition: all 0.2s ease-in-out;
+  box-shadow: var(--box-shadow-inset);
+}
+
+.nu-progress-linear.nu-progress-linear--bordered {
+  border: 1px solid var(--border-color);
+}
+
+.nu-progress-linear.nu-progress-linear--light,
+.nu-progress-circular.nu-progress-circular--light {
+  --bg-color: var(--light-bg);
+  --border-color: var(--light-bg-dark-shadow);
+  --selector-bg: var(--g-text-color-secondary-light);
+  --box-shadow-inset-dense: inset -1px -1px 3px var(--light-bg-light-shadow),
+    inset 1px 1px 3px var(--light-bg-dark-shadow);
+  --box-shadow-dense: -1px -1px 3px var(--light-bg-light-shadow),
+    1px 1px 3px var(--light-bg-dark-shadow);
+}
+
+.nu-progress-linear.nu-progress-linear--dark,
+.nu-progress-circular.nu-progress-circular--dark {
+  --bg-color: var(--dark-bg);
+  --border-color: var(--dark-bg-light-shadow);
+  --selector-bg: var(--g-text-color-secondary-dark);
+  --box-shadow-inset-dense: inset -1px -1px 3px var(--dark-bg-light-shadow),
+    inset 1px 1px 3px var(--dark-bg-dark-shadow);
+  --box-shadow-dense: -1px -1px 3px var(--dark-bg-light-shadow),
+    1px 1px 3px var(--dark-bg-dark-shadow);
+}
+
+.nu-progress-linear--bg-wrapper {
+  width: calc(100% - 4px);
+  overflow: hidden;
+}
+
+.nu-progress-linear--bg-wrapper.nu-progress-linear--bg-filled {
+  width: 100%;
+}
+
+.nu-progress-linear--bg {
+  width: 100%;
+  overflow: hidden;
+  background: var(--selector-bg);
+  transition: all 0.2s ease-in-out;
+}
+
+.nu-progress-linear--striped {
+  background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.4) 25%,
+      transparent 0,
+      transparent 50%,
+      rgba(255, 255, 255, 0.4) 0,
+      rgba(255, 255, 255, 0.4) 75%,
+      transparent 0,
+      transparent
+    )
+    var(--selector-bg) !important;
+}
+
+.nu-progress-linear--indeterminate {
+  animation: indeterminate-progress 1.25s ease infinite;
+}
+
+@keyframes indeterminate-progress {
+  0% {
+    transform: translateX(-200%);
+  }
+
+  100% {
+    width: 100%;
+    transform: translateX(100%);
+  }
+}
+
+/* circular */
+.nu-progress-circular {
+  position: relative;
+}
+
+.nu-progress-circular--inner,
+.nu-progress-circular--outer,
+.nu-progress-circular--label,
+.nu-progress-circular--svg {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  border-radius: 100%;
+  background: var(--bg-color);
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.nu-progress-circular--inner {
+  z-index: 2;
+}
+
+.nu-progress-circular--outer {
+  z-index: 1;
+}
+
+.nu-progress-circular--not-elevated .nu-progress-circular--inner {
+  box-shadow: var(--box-shadow-dense);
+}
+
+.nu-progress-circular--not-elevated .nu-progress-circular--outer {
+  box-shadow: var(--box-shadow-inset-dense);
+}
+
+.nu-progress-circular--elevated .nu-progress-circular--inner {
+  box-shadow: var(--box-shadow-inset-dense);
+}
+
+.nu-progress-circular--elevated .nu-progress-circular--outer {
+  box-shadow: var(--box-shadow-dense);
+}
+
+.nu-progress-circular--flat .nu-progress-circular--outer,
+.nu-progress-circular--flat .nu-progress-circular--inner {
+  box-shadow: none !important;
+}
+
+.nu-progress-circular--svg {
+  z-index: 2;
+}
+
+.nu-progress-circular--label {
+  z-index: 3;
+  color: var(--selector-bg);
+}
+
+.nu-progress-circular--circle {
+  z-index: 3;
+  fill: transparent;
+  stroke: var(--selector-bg);
+  transition: all 0.3s ease-in-out;
+}
+
+.nu-progress-circular--indeterminate {
+  animation: svg-animation 2s linear infinite;
+}
+
+.nu-progress-circular--indeterminate circle {
+  stroke-linecap: round;
+  transform-origin: bottom right;
+  animation: dash-animate 1.4s ease-in-out infinite both;
+}
+
+@keyframes svg-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes dash-animate {
+  0% {
+    stroke-dashoffset: none;
+    transform: rotate(0);
+  }
+
+  50% {
+    stroke-dashoffset: initial;
+    transform: rotate(45deg);
+  }
+
+  100% {
+    stroke-dashoffset: none;
+    transform: rotate(360deg);
+  }
+}
