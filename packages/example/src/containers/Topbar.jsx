@@ -41,7 +41,7 @@ class Topbar extends React.Component {
                     {title}
                 </Card>
                 <Card flat className='d-flex align-center topbar-actions'>
-                    <div  style={{width: "200px"}}>
+                    <div>
                         <ToggleButton className='topbar-action' onChange={onClick}>
                             <Icon path={dark ? mdiLightbulbOutline : mdiLightbulb} size={1} />
                         </ToggleButton>

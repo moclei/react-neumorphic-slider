@@ -12,6 +12,13 @@ or
 yarn add react-neumorphic-slider
 ```
 
+### Documentation
+> [Documentation with examples](https://moclei.github.io/react-neumorphic-slider/)
+> 
+> [Demo app](https://github.com/moclei/react-neumorphic-slider/tree/main/packages/example)
+> 
+> [Component source](https://github.com/moclei/react-neumorphic-slider/tree/main/packages/react-neumorphic-slider)
+
 ### Demo
 ![Demo](https://media.giphy.com/media/gp7xlb9hvQpUP5gpyP/giphy.gif)
 
@@ -31,4 +38,4 @@ class Component extends React.Component {
 
 ## Usage options
 
-See the included [example](https://github.com/moclei/react-neumorphic-slider/tree/main/packages/example) project for usage options. 
+See the included [Documentation](https://moclei.github.io/react-neumorphic-slider/) for usage options and api info. 
