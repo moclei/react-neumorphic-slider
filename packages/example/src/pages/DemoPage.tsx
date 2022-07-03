@@ -22,13 +22,12 @@ interface DemoPageProps {
     size: any;
 }
 
-interface StyledAppProps {
-    dark: boolean;
+const StyledApp = styled.div<{
     background: string;
-}
-const StyledApp = styled.div<StyledAppProps>`
+    dark: boolean;
+}>`
   text-align: center;
-  background-color: ${props => props.background};
+  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -36,16 +35,47 @@ const StyledApp = styled.div<StyledAppProps>`
   justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color:  ${props => props.dark ? "white" : "black"};
+  background-color: ${props => props.background};
 `;
 
+const StyledDocContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  padding: 40px 0;
+`;
 
-const sliders = ` <Slider dark={dark} />
-                  <Slider dark={dark} disabled />
-                  <Slider dark={dark} color={"green"}/>`;
+const DocLeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 20%;
+`;
 
-const slidersLabeled = `<Slider dark={dark}  label={"Default theme"} />
-                        <Slider dark={dark} disabled  label={"Disabled"} />
-                        <Slider dark={dark} color={"green"}  label={"Custom selector color"} />
+const DocCenterColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+  justify-content: center;
+  padding: 4px;
+`;
+
+const DocRightColumn = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const sliders = `
+    <Slider dark={dark} />
+    <Slider dark={dark} disabled />
+    <Slider dark={dark} color={"green"}/>
+`;
+
+const slidersLabeled = `
+    <Slider dark={dark}  label={"Default theme"} />
+    <Slider dark={dark} disabled  label={"Disabled"} />
+    <Slider dark={dark} color={"green"}  label={"Custom selector color"} />
 `;
 
 const slidersThemed = `
@@ -55,14 +85,15 @@ const slidersThemed = `
 )}`;
 
 const slidersRange = `<Slider dark={dark} range={{min: 0, max: 4}} onChange={handleSliderChange} label={"Custom range"}/>`;
+const url =
+    'https://github.com/moclei/react-neumorphic-slider/blob/main/packages/example/src/pages/DemoPage.tsx';
 
-export const DemoPage = ({location, size}: DemoPageProps) => {
+export const DemoPage = ({size}: DemoPageProps) => {
     const [dark, setDark] = useState(true);
     const [open, setOpen] = useState(false);
     const [background1, setBg1] = useState(dark ? "#444444" : "#E4EBF5");
     const [text1, setText1] = useState(dark ? "white" : "black");
     const [sliderVal, setSliderVal] = useState(0);
-    // const [color, setColor ] = useState( dark ? "#444444" : "#E4EBF5");
 
     useEffect(() => {
         setBg1(dark ? "#444444" : "#E4EBF5");
@@ -78,23 +109,10 @@ export const DemoPage = ({location, size}: DemoPageProps) => {
         setOpen(!open)
     };
 
-    useEffect(() => {
-        console.debug("useEffect(dark): ", dark);
-    }, [dark]);
-
     const handleSliderChange = (evt: any) => {
-        console.debug("slider change evt: ", evt);
         setSliderVal(evt.target.value)
     }
 
-    const getIsHome = () => {
-        const { pathname: p } = location
-        return (
-            p === '/' || p === '/home' || p === '/examples' || p === '/typography'
-        )
-    };
-    const url =
-        'https://github.com/moclei/react-neumorphic-slider/packages/example/src/pages/DemoPage.jsx';
     return (
             <StyledApp dark background={'#444444'}>
                 <Card
@@ -124,20 +142,13 @@ export const DemoPage = ({location, size}: DemoPageProps) => {
                                         url={url}
                                         dark={dark}
                                         content={
-                                            <div style={{display: "flex", flexDirection: "row", width: "100%", height: "100%", padding: "40px 0"}}>
-                                                <div style={{
-                                                    display: "flex",
-                                                    flexDirection: "column",
-                                                    flex: 2,
-                                                    alignItems: "center",
-                                                    justifyContent: "center",
-                                                    padding: "4px",
-                                                }}>
+                                            <StyledDocContainer style={{width: "100%"}}>
+                                                <DocCenterColumn style={{alignItems: "center"}}>
                                                     <Slider dark={dark} style={{width: "200px"}}/>
                                                     <Slider dark={dark} disabled style={{width: "200px"}}/>
                                                     <Slider dark={dark} color={"green"} style={{width: "200px"}}/>
-                                                </div>
-                                            </div>
+                                                </DocCenterColumn>
+                                            </StyledDocContainer>
                                         }
                                         code={sliders}
                                     />
@@ -148,15 +159,15 @@ export const DemoPage = ({location, size}: DemoPageProps) => {
                                         title={<H5>Slider with label</H5>}
                                         subtitle={<Subtitle1>Slider can be provided with a label.</Subtitle1>}
                                         content={
-                                            <div style={{display: "flex", flexDirection: "row", alignItems: "center", height: "100%", padding: "40px 0"}}>
-                                                <div style={{display: "flex", flex: "1 1 20%"}}/>
-                                                <div style={{display: "flex", flex: 2, flexDirection: "column", alignItems: "flex-start"}}>
+                                            <StyledDocContainer style={{alignItems: "center"}}>
+                                                <DocLeftColumn />
+                                                <DocCenterColumn style={{alignItems: "flex-start"}}>
                                                     <Slider dark={dark}  label={"Default theme"} style={{width: "200px"}}/>
                                                     <Slider dark={dark} disabled  label={"Disabled"} style={{width: "200px"}}/>
                                                     <Slider dark={dark} color={"green"}  label={"Custom selector color"} style={{width: "200px"}}/>
-                                                </div>
-                                                <div style={{display: "flex", flex: 1}}/>
-                                            </div>
+                                                </DocCenterColumn>
+                                                <DocRightColumn />
+                                            </StyledDocContainer>
                                         }
                                         code={slidersLabeled}
                                     />
@@ -168,22 +179,22 @@ export const DemoPage = ({location, size}: DemoPageProps) => {
                                         color={background1}
                                         subtitle={<Subtitle1>Slider can be provided with a background color and it will automatically match the contrast for visibility.</Subtitle1>}
                                         content={
-                                            <div style={{display: "flex", flexDirection: "row", alignItems: "center", height: "100%", padding: "40px 0"}}>
-                                                <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1 1 20%"}}>
+                                            <StyledDocContainer style={{alignItems: "center"}}>
+                                                <DocLeftColumn >
                                                     <p style={{color: text1}}>For auto theme, pick a color</p>
                                                     <div style={{width: "200px", padding: "24px 0"}}>
                                                         <SliderPicker
                                                             color={background1}
                                                             onChangeComplete={(color) => setBg1(color.hex)}/>
                                                     </div>
-                                                </div>
-                                                <div style={{display: "flex", flex: 2, flexDirection: "column", alignItems: "flex-start"}}>
+                                                </DocLeftColumn>
+                                                <DocCenterColumn style={{alignItems: "flex-start"}}>
                                                     <Slider background={background1} label={"Auto theme"}  style={{width: "200px"}}/>
                                                     <Slider background={background1} disabled  label={"Auto theme - disabled"}  style={{width: "200px"}}/>
                                                     <Slider background={background1} color={"green"}  label={"Auto theme - custom selector color"}  style={{width: "200px"}}/>
-                                                </div>
-                                                <div style={{flex: 1}}/>
-                                            </div>
+                                                </DocCenterColumn>
+                                                <DocRightColumn />
+                                            </StyledDocContainer>
                                         }
                                         code={slidersThemed}
                                     />
@@ -194,17 +205,17 @@ export const DemoPage = ({location, size}: DemoPageProps) => {
                                         title={<H5>Slider with custom slider range</H5>}
                                         subtitle={<Subtitle1>Slider range is 0 to 100 by default, you can change it by passing in a custom range with format &#123; min: string, max: string&#125;.</Subtitle1>}
                                         content={
-                                            <div style={{display: "flex", flexDirection: "row", alignItems: "center", height: "100%", padding: "40px 0"}}>
-                                                <div style={{display: "flex", flexDirection: "column", alignItems: "center", flex: "1 1 20%"}}>
+                                            <StyledDocContainer style={{alignItems: "center"}}>
+                                                <DocLeftColumn >
                                                     Custom range set of &#123; min: 0, max: 4&#125;
-                                                </div>
+                                                </DocLeftColumn>
                                                 <div style={{display: "flex", flex: 2, flexDirection: "column", alignItems: "flex-start"}}>
                                                     <Slider dark={dark} range={{min: 0, max: 4}} onChange={handleSliderChange} label={"Custom range"}/>
                                                 </div>
-                                                <div style={{flex: 1, display: "flex", justifyContent: "flex-start"}}>
+                                                <DocRightColumn >
                                                     Slider Value: {sliderVal}
-                                                </div>
-                                            </div>
+                                                </DocRightColumn>
+                                            </StyledDocContainer>
                                         }
                                         code={slidersRange}
                                     />

@@ -17,11 +17,12 @@ class CodeBlock extends React.Component {
     static displayName = 'NuCodeBlock'
 
     state = {
-        open: this.props.noCollapse ? true : !!this.props.open
+        open: !!this.props.open
     }
 
     render() {
-        const { open } = this.state
+        const { open } = this.state;
+        console.debug("DocCard, props.open? ", open);
         const {
             url,
             dark,
@@ -45,9 +46,9 @@ class CodeBlock extends React.Component {
                                 <Icon path={mdiGithub} size={1} />
                             </IconButton>
                         ) : null}
-                        <ToggleButton className='ml-1' onChange={onThemeChange}>
+                        {/*<ToggleButton className='ml-1' onChange={onThemeChange}>
                             <Icon path={mdiInvertColors} size={1} />
-                        </ToggleButton>
+                        </ToggleButton>*/}
                         {children ? (
                             <IconButton
                                 className='ml-1'
