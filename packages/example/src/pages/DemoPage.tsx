@@ -218,7 +218,6 @@ export const DemoPage = ({size}: DemoPageProps) => {
                                         }
                                         code={slidersRange}
                                     />
-                                    elements of type range let the user specify a numeric value which must be no less than a given value, and no more than another given value. The precise value, however, is not considered important. This is typically represented using a slider or dial control rather than a text entry box like the number input type.
                                     <H4 className='mt-12'>
                                         <a href='#api'>
                                             API
