@@ -1241,11 +1241,6 @@ main {
     justify-content: center;
 }
 
-.main-container {
-    height: 100vh;
-    padding: 32px;
-    overflow: hidden;
-}
 
 .main-container-sm {
     --padding: 8px;
