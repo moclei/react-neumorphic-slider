@@ -1243,10 +1243,8 @@ main {
 
 .main-container {
     height: 100vh;
-    --padding: 32px;
+    padding: 32px;
     overflow: hidden;
-    padding: var(--padding);
-    --topbar-height: 99px;
 }
 
 .main-container-sm {
@@ -1293,7 +1291,23 @@ main {
     padding: 8px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+@media screen and (max-width: 800px) {
+    .main-topbar {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+@media screen and (min-width: 1200px) {
+    .main-topbar {
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 }
 
 .topbar-action,

@@ -7,7 +7,6 @@ import H5 from '../components/typography/types/H5';
 import Subtitle1 from '../components/typography/types/Subtitle1';
 import 'ui-neumorphism/dist/index.css'
 import Topbar from '../containers/Topbar'
-import {RightBar} from '../containers/RightBar'
 import DocCard from '../containers/DocCard';
 import ApiCard from '../containers/ApiCard';
 import {sliderControlApi} from "../docs/common";
@@ -27,7 +26,6 @@ const StyledApp = styled.div<{
     dark: boolean;
 }>`
   text-align: center;
-  
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -41,6 +39,7 @@ const StyledApp = styled.div<{
 const StyledDocContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   height: 100%;
   padding: 40px 0;
 `;
@@ -119,6 +118,7 @@ export const DemoPage = ({size}: DemoPageProps) => {
                     flat
                     dark={dark}
                     className={`main-container`}
+                    style={{width: "100%"}}
                 >
                     <Card>
                         <Topbar
@@ -131,7 +131,7 @@ export const DemoPage = ({size}: DemoPageProps) => {
                         <Card flat className='main-content'>
                             <Card
                                 flat
-                                className={`main-view main-view--large main-view--home`}
+                                className={`main-view`}
                             >
                                 <Card flat dark={dark}>
                                     <H4>
@@ -158,15 +158,14 @@ export const DemoPage = ({size}: DemoPageProps) => {
                                         className='mt-12'
                                         title={<H5>Slider with label</H5>}
                                         subtitle={<Subtitle1>Slider can be provided with a label.</Subtitle1>}
+                                        contentStyle={{display: "flex", justifyContent: "center"}}
                                         content={
                                             <StyledDocContainer style={{alignItems: "center"}}>
-                                                <DocLeftColumn />
                                                 <DocCenterColumn style={{alignItems: "flex-start"}}>
                                                     <Slider dark={dark}  label={"Default theme"} style={{width: "200px"}}/>
                                                     <Slider dark={dark} disabled  label={"Disabled"} style={{width: "200px"}}/>
                                                     <Slider dark={dark} color={"green"}  label={"Custom selector color"} style={{width: "200px"}}/>
                                                 </DocCenterColumn>
-                                                <DocRightColumn />
                                             </StyledDocContainer>
                                         }
                                         code={slidersLabeled}
@@ -228,7 +227,7 @@ export const DemoPage = ({size}: DemoPageProps) => {
                                     <ApiCard entity='Slider' data={sliderControlApi(dark, "Slider")} />
                                 </Card>
                             </Card>
-                            <RightBar dark={dark} size={size} />
+                            {/*<RightBar dark={dark} size={size} />*/}
                         </Card>
                     </Card>
                 </Card>

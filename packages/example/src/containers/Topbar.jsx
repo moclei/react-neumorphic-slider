@@ -8,8 +8,7 @@ import {
     mdiLightbulbOutline
 } from '@mdi/js'
 
-import {H2, H6, Card, IconButton, RadioGroup, Radio, ToggleButton} from 'ui-neumorphism'
-import {SliderPicker} from "react-color";
+import {H2, H3, H4, H5, H6, Card, IconButton, RadioGroup, Radio, ToggleButton} from 'ui-neumorphism'
 
 const npmUrl = 'https://www.npmjs.com/package/@moclei/react-neumorphic-slider';
 const githubUrl = 'https://github.com/moclei/react-neumorphic-slider';
@@ -29,7 +28,7 @@ class Topbar extends React.Component {
         ) : null
 
         const title = createElement(
-            isSmall ? H6 : H2,
+            isSmall ? H6 : H3,
             { style: { color: 'var(--primary)' }, className: 'topbar-title' },
             'react-neumorphic-slider'
         )

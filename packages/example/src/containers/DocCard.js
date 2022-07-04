@@ -20,6 +20,7 @@ class DocCard extends React.Component {
             code,
             dark,
             style,
+            contentStyle,
             title,
             content,
             subtitle,
@@ -27,6 +28,7 @@ class DocCard extends React.Component {
             color
         } = this.props
         const { darkTheme } = this.state;
+        const myStyle = {...contentStyle, background: color};
 
         const localDark = darkTheme !== undefined
         return (
@@ -34,7 +36,7 @@ class DocCard extends React.Component {
                 {title}
                 {subtitle}
                 <Card dark={dark} outlined className='mt-4' >
-                    <Card flat outlined={false} style={{background: color}} className='py-4'>
+                    <Card flat outlined={false} style={myStyle} className='py-4'>
                         {content}
                     </Card>
                     <CodeBlock
